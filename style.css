@@ -25,22 +25,22 @@ body {
   min-height: 100vh;
 }
 
-body.mode-ratito {
-  --bg: #1a1322;
-  --surface: rgba(33, 24, 42, 0.8);
-  --surface-strong: #241933;
-  --text: #f7eaff;
-  --muted: #c7b5da;
-  --accent: #f59e0b;
-  --accent-strong: #f97316;
-  --shadow: 0 20px 55px rgba(0, 0, 0, 0.3);
+body.dark-mode {
+  --bg: #10131a;
+  --surface: rgba(18, 23, 33, 0.82);
+  --surface-strong: #17202d;
+  --text: #eef2ff;
+  --muted: #a7b0c0;
+  --accent: #60a5fa;
+  --accent-strong: #2563eb;
+  --shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
   background:
-    radial-gradient(circle at top, rgba(244, 114, 182, 0.34), transparent 30%),
-    linear-gradient(180deg, #241933 0%, #120d18 100%);
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.22), transparent 30%),
+    linear-gradient(180deg, #131a25 0%, #0b0f16 100%);
 }
 
-body.mode-ratito .hero {
-  border-color: rgba(255, 255, 255, 0.08);
+body.dark-mode .hero {
+  border-color: rgba(255, 255, 255, 0.07);
 }
 
 .hero {
@@ -119,6 +119,16 @@ button:hover,
 .secondary-button:hover,
 .ghost-link:hover {
   transform: translateY(-2px);
+}
+
+body.dark-mode .ghost-link {
+  background: rgba(23, 32, 45, 0.72);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+body.dark-mode .stats article {
+  background: rgba(255, 255, 255, 0.06);
 }
 
 main {
