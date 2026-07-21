@@ -5,31 +5,52 @@ const themeBtn = document.getElementById('theme-btn');
 const storageKey = 'ratito-theme';
 let count = 0;
 
-function setTheme(isDark) {
-  document.body.classList.toggle('dark-mode', isDark);
-  themeBtn.textContent = isDark ? 'Voltar ao claro' : 'Ativar modo dark';
-  themeBtn.setAttribute('aria-pressed', String(isDark));
-  localStorage.setItem(storageKey, isDark ? 'dark' : 'light');
+function getPreferredTheme() {
+  try {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  } catch {
+    return 'light';
+  }
 }
 
-const savedTheme = localStorage.getItem(storageKey);
-setTheme(savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches);
+function setTheme(isDark) {
+  document.body.classList.toggle('dark-mode', isDark);
+  themeBtn.textContent = isDark ? 'Voltar ao claro' : 'Ativar modo noturno';
+  themeBtn.setAttribute('aria-pressed', String(isDark));
+
+  try {
+    localStorage.setItem(storageKey, isDark ? 'dark' : 'light');
+  } catch {
+    // storage indisponível, segue o jogo.
+  }
+}
+
+const savedTheme = (() => {
+  try {
+    return localStorage.getItem(storageKey);
+  } catch {
+    return null;
+  }
+})();
+
+setTheme(savedTheme ? savedTheme === 'dark' : getPreferredTheme() === 'dark');
 
 btn.addEventListener('click', () => {
-  count++;
+  count += 1;
+
   const messages = [
-    'Ratito aprovou o clique.',
-    'O mouse está satisfeito.',
-    'Mais um teste vitorioso.',
-    'Isso aqui tá ficando bom demais.',
+    'Ratito respondeu ao ping.',
+    'Pipeline de clique validado.',
+    'Sinal verde na interface.',
+    'Tudo certo: a UI está viva.',
   ];
 
-  output.textContent = `${messages[(count - 1) % messages.length]} (${count} ${count === 1 ? 'clique' : 'cliques'})`;
+  const label = count === 1 ? 'execução' : 'execuções';
+  output.textContent = `${messages[(count - 1) % messages.length]} (${count} ${label})`;
 });
 
 themeBtn.addEventListener('click', () => {
-  setTheme(!document.body.classList.contains('dark-mode'));
-  output.textContent = document.body.classList.contains('dark-mode')
-    ? 'Modo dark ativado.'
-    : 'Modo claro ativado.';
+  const isDark = !document.body.classList.contains('dark-mode');
+  setTheme(isDark);
+  output.textContent = isDark ? 'Modo noturno ativado.' : 'Modo claro ativado.';
 });
