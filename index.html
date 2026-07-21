@@ -3,39 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ratito Lab: uma landing page tech para testar UI, tema e microinterações.">
+  <meta name="description" content="Ratito Lab: uma landing page tech para testar UI, theme and microinteractions.">
   <title>Ratito Lab • teste-openclaw</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="page-shell">
     <header class="hero" id="topo">
-      <div class="hero-badge">OpenClaw // Ratito Lab</div>
-      <h1>Ratito Lab</h1>
-      <p class="hero-copy">
+      <div class="hero-badge" data-i18n="hero.badge">OpenClaw // Ratito Lab</div>
+      <h1 data-i18n="hero.title">Ratito Lab</h1>
+      <p class="hero-copy" data-i18n="hero.copy">
         Uma interface de teste com pegada tech: limpa, responsiva e pronta para validar layout,
         tema escuro e pequenas interações sem drama.
       </p>
 
       <div class="hero-actions">
-        <a class="link-button" href="#conteudo">Abrir painel</a>
-        <button id="theme-btn" class="button button-secondary" type="button" aria-pressed="false">Ativar modo noturno</button>
+        <a class="link-button" href="#conteudo" data-i18n="hero.cta">Abrir painel</a>
+        <button id="theme-btn" class="button button-secondary" type="button" aria-pressed="false" data-i18n="theme.btn.dark">Ativar modo noturno</button>
+        <button id="lang-btn" class="button button-secondary" type="button" aria-pressed="false" data-i18n="lang.btn">English</button>
       </div>
 
       <ul class="hero-pills" aria-label="Destaques do site">
-        <li>ui modular</li>
-        <li>tema salvo</li>
-        <li>responsivo</li>
-        <li>microinterações</li>
+        <li data-i18n="pills.modular">ui modular</li>
+        <li data-i18n="pills.saved">tema salvo</li>
+        <li data-i18n="pills.responsive">responsivo</li>
+        <li data-i18n="pills.micro">microinterações</li>
       </ul>
     </header>
 
     <main id="conteudo">
       <section class="card intro-card">
         <div>
-          <p class="section-label">Build status</p>
-          <h2>Um teste com cara de dashboard</h2>
-          <p>
+          <p class="section-label" data-i18n="intro.label">Build status</p>
+          <h2 data-i18n="intro.title">Um teste com cara de dashboard</h2>
+          <p data-i18n="intro.copy">
             O Ratito Lab foi pensado como uma landing page tech para experimentar estrutura visual,
             contraste, ritmo de leitura e interação instantânea.
           </p>
@@ -44,29 +45,29 @@
         <div class="meter-panel" aria-label="Indicadores do site">
           <article>
             <strong>01</strong>
-            <span>identidade única</span>
+            <span data-i18n="metrics.identity">identidade única</span>
           </article>
           <article>
             <strong>02</strong>
-            <span>temas visuais</span>
+            <span data-i18n="metrics.themes">temas visuais</span>
           </article>
           <article>
             <strong>∞</strong>
-            <span>testes possíveis</span>
+            <span data-i18n="metrics.tests">testes possíveis</span>
           </article>
         </div>
       </section>
 
       <section class="card action-card">
         <div>
-          <p class="section-label">Telemetry</p>
-          <h2>Roda um ping no Ratito</h2>
-          <p>O botão responde com mensagens rotativas para deixar a página menos estática.</p>
+          <p class="section-label" data-i18n="action.label">Telemetry</p>
+          <h2 data-i18n="action.title">Roda um ping no Ratito</h2>
+          <p data-i18n="action.copy">O botão responde com mensagens rotativas para deixar a página menos estática.</p>
         </div>
 
         <div class="action-row">
-          <button id="btn" class="button button-primary" type="button">Executar ping</button>
-          <p class="hint">Dica: cada clique incrementa o contador e muda o feedback.</p>
+          <button id="btn" class="button button-primary" type="button" data-i18n="action.btn">Executar ping</button>
+          <p class="hint" data-i18n="action.hint">Dica: cada clique incrementa o contador e muda o feedback.</p>
         </div>
 
         <p id="output" class="output" aria-live="polite"></p>
@@ -74,18 +75,18 @@
 
       <section class="card split-card">
         <div>
-          <p class="section-label">Stack</p>
-          <h2>Leve, direto e fácil de manter</h2>
+          <p class="section-label" data-i18n="stack.label">Stack</p>
+          <h2 data-i18n="stack.title">Leve, direto e fácil de manter</h2>
           <ul class="feature-list">
-            <li>HTML sem dependências externas</li>
-            <li>CSS com tokens, contraste e foco visível</li>
-            <li>JS pequeno com estado de tema persistido</li>
+            <li data-i18n="stack.item1">HTML sem dependências externas</li>
+            <li data-i18n="stack.item2">CSS com tokens, contraste e foco visível</li>
+            <li data-i18n="stack.item3">JS pequeno com estado de tema persistido</li>
           </ul>
         </div>
 
         <div class="code-box" aria-label="Resumo de implementação">
-          <p class="code-title">ratito.config</p>
-          <pre><code>theme: light | dark
+          <p class="code-title" data-i18n="stack.codeTitle">ratito.config</p>
+          <pre><code data-i18n="stack.code">theme: light | dark
 interaction: click-ping
 layout: responsive
 aim: clean-tech-ui</code></pre>
@@ -94,8 +95,8 @@ aim: clean-tech-ui</code></pre>
     </main>
 
     <footer class="footer">
-      <p>Feito para o teste-openclaw. Ratito operando em modo tech.</p>
-      <a href="#topo">Voltar ao topo</a>
+      <p data-i18n="footer.copy">Feito para o teste-openclaw. Ratito operando em modo tech.</p>
+      <a href="#topo" data-i18n="footer.top">Voltar ao topo</a>
     </footer>
   </div>
 
